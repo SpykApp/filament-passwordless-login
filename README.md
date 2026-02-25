@@ -1,6 +1,22 @@
+![Screenshot](/art/fpl.jpeg)
+
+<p align="center">
+   <a href="https://packagist.org/packages/spykapps/filament-passwordless-login">
+    <img src="https://img.shields.io/packagist/v/spykapps/filament-passwordless-login.svg?style=for-the-badge" alt="Packagist Version">
+   </a>
+   <a href="https://packagist.org/packages/spykapps/filament-passwordless-login">
+    <img src="https://img.shields.io/packagist/dt/spykapps/filament-passwordless-login.svg?style=for-the-badge" alt="Total Downloads">
+   </a>
+   <a href="https://laravel.com/docs/12.x"><img src="https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel" alt="Laravel 12"></a>
+   <a href="https://php.net"><img src="https://img.shields.io/badge/PHP-8.3-777BB4?style=for-the-badge&logo=php" alt="PHP 8.3"></a>
+   <a href="https://github.com/spykapps/filament-passwordless-login/blob/main/LICENSE.md">
+     <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="License">
+   </a>
+</p>
+
 # Filament Passwordless Login
 
-A highly customizable Filament 4 & 5 plugin for passwordless (magic link) authentication — built on top of [`spykapps/passwordless-login`](https://github.com/spykapps/passwordless-login).
+A highly customizable Filament 4 & 5 plugin for passwordless (magic link) authentication — built on top of [`spykapps/passwordless-login`](https://github.com/SpykApp/passwordless-login).
 
 ## Features
 
