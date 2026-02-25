@@ -550,7 +550,6 @@ The stats and chart widgets are displayed as header widgets on the token list pa
 
 - **Stats Overview** — 4 stat cards: Total Generated (with week-over-week trend), Successfully Used (with success rate), Expired Unused, Active Links. Includes sparkline mini-charts.
 - **Line Chart** — Generated vs Used vs Failed over the configured time range (default 30 days).
-- **Top Users Table** — Top 10 users by magic link usage with success rates.
 
 ### Customization
 

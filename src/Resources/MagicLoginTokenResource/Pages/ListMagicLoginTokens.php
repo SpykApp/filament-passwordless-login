@@ -52,14 +52,12 @@ class ListMagicLoginTokens extends ListRecords
 
             if ($plugin->hasChartsWidget()) {
                 $widgets[] = MagicLinkChartWidget::class;
-                $widgets[] = MagicLinkTopUsersWidget::class;
             }
         } catch (\Exception) {
             // Plugin not registered, show all
             $widgets = [
                 MagicLinkStatsWidget::class,
                 MagicLinkChartWidget::class,
-                MagicLinkTopUsersWidget::class,
             ];
         }
 
