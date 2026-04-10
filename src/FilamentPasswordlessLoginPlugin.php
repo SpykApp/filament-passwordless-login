@@ -196,10 +196,10 @@ class FilamentPasswordlessLoginPlugin implements Plugin
 
     public function getRedirectUrl(): string
     {
-        // Plugin → config → current panel's URL
+        // Plugin explicit → panel auto-detect → config fallback
         return $this->redirectUrl
-            ?? config('passwordless-login.redirect.on_success')
-            ?? filament()->getUrl();
+            ?? filament()->getUrl()
+            ?? config('passwordless-login.redirect.on_success', '/dashboard');
     }
 
     public function failureUrl(?string $url): static
@@ -211,10 +211,10 @@ class FilamentPasswordlessLoginPlugin implements Plugin
 
     public function getFailureUrl(): string
     {
-        // Plugin → config → current panel's login URL
+        // Plugin explicit → panel auto-detect → config fallback
         return $this->failureUrl
-            ?? config('passwordless-login.redirect.on_failure')
-            ?? filament()->getLoginUrl();
+            ?? filament()->getLoginUrl()
+            ?? config('passwordless-login.redirect.on_failure', '/login');
     }
 
     // ── Resource ────────────────────────────────────────────

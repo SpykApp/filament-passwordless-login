@@ -124,6 +124,7 @@ class MagicLinkLogin extends BaseLogin
                 $plugin = $this->getPlugin();
                 if ($plugin) {
                     $builder->redirectTo($plugin->getRedirectUrl());
+                    $builder->failureTo($plugin->getFailureUrl());
 
                     if ($plugin->getMailable()) {
                         $builder->useMailable($plugin->getMailable());

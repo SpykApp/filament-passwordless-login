@@ -94,6 +94,10 @@ class SendMagicLinkAction extends Action
                 $builder->redirectTo($plugin->getRedirectUrl());
             }
 
+            if ($plugin?->getFailureUrl()) {
+                $builder->failureTo($plugin->getFailureUrl());
+            }
+
             if ($plugin?->getMailable()) {
                 $builder->useMailable($plugin->getMailable());
             }

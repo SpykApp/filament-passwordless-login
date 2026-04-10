@@ -32,7 +32,7 @@ A highly customizable Filament 4 & 5 plugin for passwordless (magic link) authen
 ## Requirements
 
 - PHP 8.1+
-- Laravel 10, 11, or 12
+- Laravel 10, 11, 12, or 13
 - Filament 4.x, 5.x
 - spykapps/passwordless-login ^1.0
 
@@ -86,6 +86,23 @@ public function panel(Panel $panel): Panel
 ```
 
 That's it! The plugin will replace the login page, register the token resource with widgets.
+
+### Already installed? Run the upgrade command
+
+If you're upgrading from a previous version, the base package includes a command to apply new schema changes (such as the `failure_url` column) to your existing tokens table without recreating it:
+
+```bash
+php artisan passwordless-login:upgrade
+```
+
+The command will:
+
+1. Ask for your tokens table name (defaults to `passwordless_login_tokens`, or the value from your config)
+2. Show a disclaimer listing every column it intends to add
+3. Ask for confirmation before touching your database
+4. Add any missing columns — safely skipping ones that already exist
+
+> **Non-destructive & idempotent** — only adds new nullable columns, safe to run multiple times.
 
 ### 5. Publish plugin config (optional)
 
@@ -174,8 +191,8 @@ Settings follow this priority order: **Plugin fluent API → Config file → Lan
 | Nav Label | — | — | `navigation_label` | `Magic Links` |
 | Mailable | `->mailable()` | — | — | Base package default |
 | Notification | `->notification()` | — | — | Base package default |
-| Redirect URL | `->redirectUrl()` | `passwordless-login.redirect.on_success` | — | `filament()->getUrl()` |
-| Failure URL | `->failureUrl()` | `passwordless-login.redirect.on_failure` | — | `filament()->getLoginUrl()` |
+| Redirect URL | `->redirectUrl()` | — | — | `filament()->getUrl()` → `passwordless-login.redirect.on_success` |
+| Failure URL | `->failureUrl()` | — | — | `filament()->getLoginUrl()` → `passwordless-login.redirect.on_failure` |
 
 ---
 
@@ -226,8 +243,8 @@ FilamentPasswordlessLoginPlugin::make()
 ### Priority
 
 1. **Plugin fluent API** — `->redirectUrl()` / `->failureUrl()`
-2. **Base package config** — `passwordless-login.redirect.on_success` / `on_failure`
-3. **Auto-detected** — Current Filament panel URL / login URL
+2. **Auto-detected** — Current Filament panel URL / login URL
+3. **Base package config** — `passwordless-login.redirect.on_success` / `on_failure`
 
 ### Multi-Panel Setup
 
